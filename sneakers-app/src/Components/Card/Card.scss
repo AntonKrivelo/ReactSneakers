@@ -1,0 +1,48 @@
+.card-item {
+    cursor: pointer;
+    width: 210px;
+    height: 260px;
+    border: 1px solid #F3F3F3;
+    border-radius: 40px;
+    margin-bottom: 40px;
+    &-add-button {
+        min-width: 32px;
+        min-height: 32px;
+        border: 1px solid #F2F2F2;
+        border-radius: 8px;
+        &-img {
+           padding-top: 4px;
+        }
+    }
+    &-img {
+        padding: 20px 45px 14px 33px;
+    }
+    &-name {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 100%;
+        text-align: center;
+        padding-bottom: 14px;
+    }
+    &-info {
+        display: flex;
+        justify-content: space-around;
+        &-price {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 100%;
+            padding-top: 3px;
+            &-title {
+                color: #BDBDBD;
+                font-size: 11px;
+                line-height: 100%;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+.card-item:hover {
+    transition: 0.4s all;
+    box-shadow: 5px 5px 5px rgb(189, 189, 189);
+}

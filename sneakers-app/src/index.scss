@@ -103,4 +103,17 @@ body {
 	background-color: #FFF;
 	border-radius: 10px;
 }
-
+.content {
+	margin: 60px;
+}
+.content-item {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.title {
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 100%;
+	padding-bottom: 30px;
+}

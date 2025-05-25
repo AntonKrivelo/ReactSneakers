@@ -1,4 +1,5 @@
 import './App.css';
+import Card from './Components/Card/Card';
 import Header from './Components/Header/Header';
 import './index.scss';
 
@@ -9,6 +10,12 @@ function App() {
     <div className="wrapper">
         <div className="container">
           <Header />
+          <div className="container content">
+              <h1 className="title">Все кроссовки:</h1>
+              <div className="content-item">
+                  <Card />
+              </div>
+          </div>
         </div>
     </div>
   );
