@@ -1,6 +1,7 @@
 import './App.css';
 import Card from './Components/Card/Card';
 import Header from './Components/Header/Header';
+import SearchBlock from './Components/SearchBlock/SearchBlock';
 import './index.scss';
 
 
@@ -12,8 +13,9 @@ function App() {
           <Header />
           <div className="container content">
               <h1 className="title">Все кроссовки:</h1>
+                <SearchBlock />
               <div className="content-item">
-                  <Card />
+                <Card />
               </div>
           </div>
         </div>

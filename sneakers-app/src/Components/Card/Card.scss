@@ -5,11 +5,33 @@
     border: 1px solid #F3F3F3;
     border-radius: 40px;
     margin-bottom: 40px;
+    position: relative;
+    &-favourite {
+        z-index: 10;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        min-width: 32px;
+        min-height: 32px;
+        border: 1px solid #F2F2F2;
+        border-radius: 8px;
+        &-img {
+            padding-top: 3px;
+        }
+        &:hover {
+            background-color: #FEF0F0
+        }
+
+    }
     &-add-button {
         min-width: 32px;
         min-height: 32px;
         border: 1px solid #F2F2F2;
         border-radius: 8px;
+        opacity: 0.6;
+        &:hover {
+        opacity: 1;
+        }
         &-img {
            padding-top: 4px;
         }
