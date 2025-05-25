@@ -1,14 +1,14 @@
 import React from "react";
 import "./Card.scss";
-import add from "../../Icons/plus.svg";
+import add from "../../Icons/CardIcon/add-button.svg";
 import img from "../../Img/img1.svg";
-import heartIcon from "../../Icons/heart.svg"
+import heartUnliked from "../../Icons/CardIcon/heart-unliked.svg";
 
 const Card = () => {
     return (
         <div className="card-item">
             <button className="card-item-favourite">
-                <img className="card-item-favourite-img" src={heartIcon} alt="FavouriteIcon" />
+                <img className="card-item-favourite-img" src={heartUnliked} alt="FavouriteIcon" />
             </button>
             <img className="card-item-img" src={img} alt="kross" />
             <p className="card-item-name">Мужские Кроссовки Nike Blazer Mid Suede</p>
