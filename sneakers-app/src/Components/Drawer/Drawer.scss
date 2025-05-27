@@ -1,0 +1,27 @@
+.drawer-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+}
+.drawer-block {  
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 385px;
+    background: #FFF;
+    box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+    &-title {
+        font-weight: 700;
+        font-size: 24px;
+        padding: 32px 0 30px 30px;
+    }
+    &-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;  
+    }
+}

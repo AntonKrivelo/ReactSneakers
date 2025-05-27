@@ -1,0 +1,38 @@
+.cart-item-block {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 21px;
+    border-radius: 20px;
+    border: 1px solid #F3F3F3;
+    padding: 30px 64px 30px 21px;
+    width: 325px;
+    &-img {
+        min-width: 70px;
+        min-height: 70px;
+    }
+    &-info {
+        display: flex;
+        flex-direction: column;
+    }
+    &-name {
+        font-weight: 400;
+        font-size: 14px;
+    }
+    &-price {
+        font-weight: 700;
+        font-size: 14px;
+    }
+    &-button {
+        &-img {
+            position: absolute;
+            min-width: 32px;
+            min-height: 32px;
+            opacity: 0.7;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+}
