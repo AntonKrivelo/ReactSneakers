@@ -3,7 +3,7 @@ import "./Card.scss";
 import add from "../../Icons/CardIcon/add-button.svg";
 import heartUnliked from "../../Icons/CardIcon/heart-unliked.svg";
 
-const Card = ({item, imgUrl}) => {
+const Card = ({item, imgUrl, clickInfo}) => {
 
     return (
         <div className="card-item">
@@ -17,7 +17,7 @@ const Card = ({item, imgUrl}) => {
                     <span className="card-item-info-price-title">Цена:</span>
                     <p className="card-item-price">{item.price} Rub.</p>
                 </div>
-                <button className="card-item-add-button">
+                <button onClick={() => console.log(clickInfo)} className="card-item-add-button">
                     <img className="card-item-add-button-img" src={add} alt="added to card" />
                 </button>
             </div>
