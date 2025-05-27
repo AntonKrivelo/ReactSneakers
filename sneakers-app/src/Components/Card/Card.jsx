@@ -1,9 +1,18 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Card.scss";
 import add from "../../Icons/CardIcon/add-button.svg";
+import added from "../../Icons/CardIcon/added-button.svg"
 import heartUnliked from "../../Icons/CardIcon/heart-unliked.svg";
 
-const Card = ({item, imgUrl, clickInfo}) => {
+
+
+const Card = ({item, imgUrl}) => {
+
+    const [isAdded, setIsAdded] = useState(false);
+    
+    const handleAdded = () => {
+        setIsAdded(!isAdded)
+    }
 
     return (
         <div className="card-item">
@@ -17,8 +26,8 @@ const Card = ({item, imgUrl, clickInfo}) => {
                     <span className="card-item-info-price-title">Цена:</span>
                     <p className="card-item-price">{item.price} Rub.</p>
                 </div>
-                <button onClick={() => console.log(clickInfo)} className="card-item-add-button">
-                    <img className="card-item-add-button-img" src={add} alt="added to card" />
+                <button onClick={handleAdded} className="card-item-add-button">
+                    <img className="card-item-add-button-img" src={!isAdded ? `${add}` : `${added}`} alt="icon-added-to-card"  />
                 </button>
             </div>
         </div>

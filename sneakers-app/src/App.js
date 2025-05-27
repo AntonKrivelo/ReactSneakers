@@ -1,4 +1,5 @@
 import './App.css';
+import React,{useState} from 'react';
 import Card from './Components/Card/Card';
 // import Drawer from './Components/Drawer/Drawer';
 import Header from './Components/Header/Header';
@@ -7,6 +8,7 @@ import './index.scss';
 
 
 function App() {
+
 
 const sneakersList = [
   {name: 'Мужские Кроссовки Nike Blazer Mid Suede', price: 12999, imgUrl: 'https://img.freepik.com/free-photo/men-shoes_1203-8654.jpg?ga=GA1.1.1860244197.1732645229&semt=ais_hybrid&w=740'},
@@ -25,7 +27,7 @@ const sneakersList = [
                 <SearchBlock />
               <div className="content-item">
                 {
-                  sneakersList.map((item) => <Card imgUrl={item.imgUrl} item={item} clickInfo={item} />)
+                  sneakersList.map((item) => <Card imgUrl={item.imgUrl} item={item} />)
                 }
               </div>
           </div>

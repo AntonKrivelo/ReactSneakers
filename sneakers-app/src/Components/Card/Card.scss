@@ -1,5 +1,4 @@
 .card-item {
-    cursor: pointer;
     width: 210px;
     height: 260px;
     border: 1px solid #F3F3F3;
@@ -10,14 +9,6 @@
         position: absolute;
         top: 20px;
         left: 20px;
-        opacity: 0.8;
-        &:hover {
-            opacity: 1;
-        }
-    }
-    &-add-button {
-        min-width: 32px;
-        min-height: 32px;
         opacity: 0.8;
         &:hover {
             opacity: 1;
@@ -47,6 +38,11 @@
                 line-height: 100%;
                 text-transform: uppercase;
             }
+        }
+    }
+    &-add {
+        &-button {
+            cursor: pointer;
         }
     }
 }
