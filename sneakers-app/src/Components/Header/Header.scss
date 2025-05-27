@@ -34,6 +34,10 @@
                 font-size: 14px;
                 color: #5C5C5C;
                 font-weight: 400;
+                &:hover {
+                    cursor: pointer;
+                    color: #000;
+                }
             }
             &-icon {
                 min-width: 18px;

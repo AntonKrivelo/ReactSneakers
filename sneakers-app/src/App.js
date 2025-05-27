@@ -12,7 +12,7 @@ function App() {
     <div className="wrapper">
         <div className="container">
           <Header />
-          <Drawer />
+          {/* <Drawer /> */}
           <div className="container content">
               <h1 className="title">Все кроссовки:</h1>
                 <SearchBlock />
