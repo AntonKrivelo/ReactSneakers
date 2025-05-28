@@ -1,7 +1,7 @@
 import './App.css';
 import React,{useState} from 'react';
 import Card from './Components/Card/Card';
-// import Drawer from './Components/Drawer/Drawer';
+import Drawer from './Components/Drawer/Drawer';
 import Header from './Components/Header/Header';
 import SearchBlock from './Components/SearchBlock/SearchBlock';
 import './index.scss';
@@ -17,11 +17,26 @@ const sneakersList = [
   {name: 'Кроссовки Puma X Aka Boku Future Rider', price: 8999, imgUrl: 'https://img.freepik.com/premium-photo/female-sport-shoes_78621-2762.jpg?ga=GA1.1.1860244197.1732645229&semt=ais_hybrid&w=740'},
 ]
 
+const [openCart, setOpenCart] = useState(false);
+
+
+const openOnClickCart = () => {
+  setOpenCart(!openCart);
+}
+
+const closeOverlayCart = (e) => {
+  if(e.target.classList.contains('drawer-overlay')) {
+    setOpenCart(false)
+  }
+}
+
   return (
     <div className="wrapper">
         <div className="container">
-          <Header />
-          {/* <Drawer /> */}
+          <Header openOnClickCart={openOnClickCart} />
+          {
+            openCart ? <Drawer openOnClickCart={openOnClickCart} closeOverlayCart={closeOverlayCart} /> : null
+          }
           <div className="container content">
               <h1 className="title">Все кроссовки:</h1>
                 <SearchBlock />

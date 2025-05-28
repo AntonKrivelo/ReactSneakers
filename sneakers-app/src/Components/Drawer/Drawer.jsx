@@ -1,12 +1,14 @@
 import React from "react";
 import "./Drawer.scss";
 import CartItem from "../CartItem/CartItem";
+import removeCart from "../../Icons/CartIcons/button-cart.svg";
 
-const Drawer = () => {
+const Drawer = ({openOnClickCart, closeOverlayCart}) => {
     return (
-        <div className="drawer-overlay">
+        <div onClick={closeOverlayCart} className="drawer-overlay">
             <div className="drawer-block">
                 <h2 className="drawer-block-title">Корзина</h2>
+                    <img onClick={openOnClickCart} className="drawer-block-close-cart" src={removeCart} alt="iconRemoveCart" />
                 <div className="drawer-block-items">
                     <CartItem />
                     <CartItem />

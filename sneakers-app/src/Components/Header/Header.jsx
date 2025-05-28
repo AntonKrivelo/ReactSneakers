@@ -5,7 +5,7 @@ import iconFavourite from '../../Icons/FavouriteIcon.svg';
 import iconProfile from '../../Icons/profileIcon.svg';
 import './Header.scss';
 
-const Header = () => {
+const Header = ({openOnClickCart}) => {
     return(
         <header className="header">
             <div className="header-main">
@@ -16,7 +16,7 @@ const Header = () => {
               </div>
             </div>
             <ul className="header-main-buttons">
-              <li>
+              <li onClick={openOnClickCart}>
                 <img className="header-main-buttons-icon" src={iconCart} alt="cartIcon" />
                 <span>1205 Rub.</span>
               </li>
