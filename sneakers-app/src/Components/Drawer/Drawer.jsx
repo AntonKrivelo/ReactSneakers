@@ -2,6 +2,7 @@ import React from "react";
 import "./Drawer.scss";
 import CartItem from "../CartItem/CartItem";
 import removeCart from "../../Icons/CartIcons/button-cart.svg";
+import vector from "../../Icons/vector.svg";
 
 const Drawer = ({openOnClickCart, closeOverlayCart}) => {
     return (
@@ -23,7 +24,9 @@ const Drawer = ({openOnClickCart, closeOverlayCart}) => {
                         <span>1074 Rub.</span>
                     </div>
                     <div>
-                        <button className="drawer-block-buy-btn">Оформить заказ</button>
+                        <button className="drawer-block-buy-btn">Оформить заказ
+                            <img src={vector} alt="vector-icon" />
+                        </button>
                     </div>
                 </div>
             </div>

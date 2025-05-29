@@ -48,6 +48,7 @@
             }
         }
         &-btn {
+            position: relative;
             color: #FFF;
             font-size: 16px;
             font-weight: 600;
@@ -55,8 +56,17 @@
             border-radius: 18px;
             padding: 18px 0 18px 0;
             min-width: 325px;
+            img {
+                position: absolute;
+                right: 50px;
+                bottom: 20px;
+            }
             &:hover {
                 background-color: #719841;
+                img {
+                    right: 30px;
+                    transition: 0.4s all;
+                }
             }
         }
     }
@@ -66,4 +76,8 @@
     position: absolute;
     right: 10px;
     top: 10px;
+    opacity: 0.5;
+    &:hover {
+        opacity: 1;
+    }
 }
