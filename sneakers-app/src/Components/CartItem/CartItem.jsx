@@ -1,21 +1,20 @@
 import React from "react";
 import "./CartItem.scss";
-import sneakersImg from "../../Img/imgSneakersCart.svg";
 import deleteSneakers from "../../Icons/CartIcons/button-cart.svg";
 
-const CartItem = () => {
+const CartItem = ({obj}) => {
     return (
         <div className="cart-item-block">
             <div>
-                <img className="cart-item-block-img" src={sneakersImg} alt="imageSneakers" />
+                <img className="cart-item-block-img" src={obj.imgUrl} alt="imageSneakers" />
             </div>
             <div className="cart-item-block-info">
                 <p className="cart-item-block-name">
-                    Мужские Кроссовки Nike Air Max 270
+                    {obj.name}
                 </p>
                 <br />
                 <p className="cart-item-block-price">
-                    8 499 Rub.
+                    {obj.price}Rub.
                 </p>
             </div>
             <div>

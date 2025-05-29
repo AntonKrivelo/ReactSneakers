@@ -11,6 +11,8 @@ function App() {
 
 const [items, setItems] = useState([]);
 
+const [cartItems, setCartItems] = useState([]);
+
 // useEffect(() => {
 //   axios.get('https://68385e662c55e01d184d08ef.mockapi.io/items').then(({data}) => {
 //     setItems(data.items)
@@ -27,6 +29,7 @@ useEffect(() => {
       }))
 }, [setItems])
 
+
 const [openCart, setOpenCart] = useState(false);
 
 const openOnClickCart = () => {
@@ -39,19 +42,24 @@ const closeOverlayCart = (e) => {
   }
 }
 
+const onAddToCart = (obj) => {
+  alert('Товар добавлен в вашу корзину!')
+  setCartItems([...cartItems, obj])
+}
+
   return (
     <div className="wrapper">
         <div className="container">
           <Header openOnClickCart={openOnClickCart} />
           {
-            openCart ? <Drawer openOnClickCart={openOnClickCart} closeOverlayCart={closeOverlayCart} /> : null
+            openCart ? <Drawer openOnClickCart={openOnClickCart} cartItems={cartItems} closeOverlayCart={closeOverlayCart} /> : null
           }
           <div className="container content">
               <h1 className="title">Все кроссовки:</h1>
                 <SearchBlock />
               <div className="content-item">
                 {
-                  items.map((item) => <Card imgUrl={item.imgUrl} item={item} />)
+                  items.map((item) => <Card imgUrl={item.imgUrl} name={item.name} price={item.price} onAddToCart={(obj) => onAddToCart(obj)} />)
                 }
               </div>
           </div>
