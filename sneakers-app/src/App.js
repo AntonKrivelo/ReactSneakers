@@ -10,7 +10,7 @@ import './index.scss';
 function App() {
 
 const [items, setItems] = useState([]);
-
+const [searchValue, setSearchValue] = useState('');
 const [cartItems, setCartItems] = useState([]);
 
 // useEffect(() => {
@@ -50,6 +50,10 @@ const removeCartItem = (itemId) => {
   setCartItems(prev => prev.filter(item => item.id !== itemId))
 }
 
+const onChangeValue = (e) => {
+  setSearchValue(e.target.value)
+}
+
   return (
     <div className="wrapper">
         <div className="container">
@@ -58,8 +62,8 @@ const removeCartItem = (itemId) => {
             openCart ? <Drawer removeCartItem={removeCartItem} openOnClickCart={openOnClickCart} cartItems={cartItems} closeOverlayCart={closeOverlayCart} /> : null
           }
           <div className="container content">
-              <h1 className="title">Все кроссовки:</h1>
-                <SearchBlock />
+              <h1 className="title">{searchValue ? `Поиск по запросу: "${searchValue}"` : "Все кроссовки:"}</h1>
+                <SearchBlock value={searchValue} clearValue={() => setSearchValue('')} searchValue={searchValue} onChangeValue={onChangeValue} />
               <div className="content-item">
                 {
                   items.map((item,index) => <Card key={index} imgUrl={item.imgUrl} name={item.name} price={item.price} onAddToCart={(obj) => onAddToCart(obj)} />)
