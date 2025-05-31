@@ -4,7 +4,7 @@ import CartItem from "../CartItem/CartItem";
 import removeCart from "../../Icons/CartIcons/button-cart.svg";
 import vector from "../../Icons/vector.svg";
 
-const Drawer = ({openOnClickCart, closeOverlayCart, cartItems = []}) => {
+const Drawer = ({openOnClickCart, closeOverlayCart, cartItems = [], removeCartItem}) => {
     return (
         <div onClick={closeOverlayCart} className="drawer-overlay">
             <div className="drawer-block">
@@ -13,7 +13,7 @@ const Drawer = ({openOnClickCart, closeOverlayCart, cartItems = []}) => {
                 <div className="drawer-block-items">
                     {
                         cartItems.map((obj) => (
-                            <CartItem obj={obj} />
+                            <CartItem removeCartItem={removeCartItem} obj={obj} />
                         ))
                     }
                 </div>

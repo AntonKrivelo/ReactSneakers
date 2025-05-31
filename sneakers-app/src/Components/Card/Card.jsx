@@ -27,7 +27,7 @@ const Card = ({item, name, price, imgUrl, onAddToCart}) => {
                     <span className="card-item-info-price-title">Цена:</span>
                     <p className="card-item-price">{price} Rub.</p>
                 </div>
-                <button onClick={handleAdded} className="card-item-add-button">
+                <button onClick={() => handleAdded(item)} className="card-item-add-button">
                     <img className="card-item-add-button-img" src={!isAdded ? `${add}` : `${added}`} alt="icon-added-to-card"  />
                 </button>
             </div>

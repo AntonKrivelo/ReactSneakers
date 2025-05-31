@@ -43,8 +43,11 @@ const closeOverlayCart = (e) => {
 }
 
 const onAddToCart = (obj) => {
-  alert('Товар добавлен в вашу корзину!')
   setCartItems([...cartItems, obj])
+}
+
+const removeCartItem = (itemId) => {
+  setCartItems(prev => prev.filter(item => item.id !== itemId))
 }
 
   return (
@@ -52,14 +55,14 @@ const onAddToCart = (obj) => {
         <div className="container">
           <Header openOnClickCart={openOnClickCart} />
           {
-            openCart ? <Drawer openOnClickCart={openOnClickCart} cartItems={cartItems} closeOverlayCart={closeOverlayCart} /> : null
+            openCart ? <Drawer removeCartItem={removeCartItem} openOnClickCart={openOnClickCart} cartItems={cartItems} closeOverlayCart={closeOverlayCart} /> : null
           }
           <div className="container content">
               <h1 className="title">Все кроссовки:</h1>
                 <SearchBlock />
               <div className="content-item">
                 {
-                  items.map((item) => <Card imgUrl={item.imgUrl} name={item.name} price={item.price} onAddToCart={(obj) => onAddToCart(obj)} />)
+                  items.map((item,index) => <Card key={index} imgUrl={item.imgUrl} name={item.name} price={item.price} onAddToCart={(obj) => onAddToCart(obj)} />)
                 }
               </div>
           </div>
