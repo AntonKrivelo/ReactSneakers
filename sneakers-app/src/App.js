@@ -66,7 +66,9 @@ const onChangeValue = (e) => {
                 <SearchBlock value={searchValue} clearValue={() => setSearchValue('')} searchValue={searchValue} onChangeValue={onChangeValue} />
               <div className="content-item">
                 {
-                  items.map((item,index) => <Card key={index} imgUrl={item.imgUrl} name={item.name} price={item.price} onAddToCart={(obj) => onAddToCart(obj)} />)
+                  items
+                  .filter((item) => item.name.includes(searchValue))
+                  .map((item,index) => <Card key={index} imgUrl={item.imgUrl} name={item.name} price={item.price} onAddToCart={(obj) => onAddToCart(obj)} />)
                 }
               </div>
           </div>
