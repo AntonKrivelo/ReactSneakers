@@ -17,7 +17,7 @@ const CartItem = ({obj, removeCartItem}) => {
                 </p>
             </div>
             <div>
-                <button onClick={() => removeCartItem(CartItem.id)} className="cart-item-block-button">
+                <button onClick={() => removeCartItem(obj.id)} className="cart-item-block-button">
                     <img className="cart-item-block-button-img" src={deleteSneakers} alt="button-delete-is-cart" />
                 </button>
             </div>

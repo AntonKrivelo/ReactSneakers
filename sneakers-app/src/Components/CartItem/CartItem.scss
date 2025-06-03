@@ -30,6 +30,7 @@
         font-size: 14px;
     }
     &-button {
+        z-index: 20;
         &-img {
             position: absolute;
             min-width: 32px;

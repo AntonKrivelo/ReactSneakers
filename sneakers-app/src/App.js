@@ -47,8 +47,9 @@ const onAddToCart = (obj) => {
   setCartItems([...cartItems, obj])
 }
 
-const removeCartItem = (itemId) => {
-  setCartItems(prev => prev.filter(item => item.id !== itemId))
+const removeCartItem = (id) => {
+  axios.delete(`https://68385e662c55e01d184d08ef.mockapi.io/cart/${id}`)
+  setCartItems((prev) => prev.filter(item => item.id !== id))
 }
 
 const onChangeValue = (e) => {
