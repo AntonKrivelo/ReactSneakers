@@ -13,6 +13,7 @@ function App() {
 const [items, setItems] = useState([]);
 const [searchValue, setSearchValue] = useState('');
 const [cartItems, setCartItems] = useState([]);
+const [favouriteItems, setFavouriteItems] = useState([]);
 
 // useEffect(() => {
 //   axios.get('https://68385e662c55e01d184d08ef.mockapi.io/items').then(({data}) => {
@@ -47,6 +48,10 @@ const onAddToCart = (obj) => {
   setCartItems([...cartItems, obj])
 }
 
+const onAddToFavourite = (obj) => {
+  setFavouriteItems([...favouriteItems, obj])
+}
+
 const removeCartItem = (id) => {
   axios.delete(`https://68385e662c55e01d184d08ef.mockapi.io/cart/${id}`)
   setCartItems((prev) => prev.filter(item => item.id !== id))
@@ -70,7 +75,7 @@ const onChangeValue = (e) => {
                 {
                   items
                   .filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))
-                  .map((item,index) => <Card key={index} imgUrl={item.imgUrl} name={item.name} price={item.price} onAddToCart={(obj) => onAddToCart(obj)} />)
+                  .map((item,index) => <Card key={index} imgUrl={item.imgUrl} name={item.name} price={item.price} onAddToCart={(obj) => onAddToCart(obj)} onAddToFavourite={(obj) => onAddToFavourite(obj)} />)
                 }
               </div>
           </div>
