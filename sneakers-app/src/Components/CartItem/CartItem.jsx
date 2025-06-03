@@ -2,12 +2,11 @@ import React from "react";
 import "./CartItem.scss";
 import deleteSneakers from "../../Icons/CartIcons/button-cart.svg";
 
+
 const CartItem = ({obj, removeCartItem}) => {
     return (
         <div className="cart-item-block">
-            <div>
-                <img className="cart-item-block-img" src={obj.imgUrl} alt="imageSneakers" />
-            </div>
+                <img className="cart-item-block-img" src={obj.imgUrl} alt="imageSneakers" /> 
             <div className="cart-item-block-info">
                 <p className="cart-item-block-name">
                     {obj.name}

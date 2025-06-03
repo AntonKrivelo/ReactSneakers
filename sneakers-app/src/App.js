@@ -1,5 +1,6 @@
 import './App.css';
 import React,{useState, useEffect} from 'react';
+import axios from 'axios';
 import Card from './Components/Card/Card';
 import Drawer from './Components/Drawer/Drawer';
 import Header from './Components/Header/Header';
@@ -20,14 +21,10 @@ const [cartItems, setCartItems] = useState([]);
 // },[])
 
 useEffect(() => {
-    fetch('https://68385e662c55e01d184d08ef.mockapi.io/items')
-      .then((res) => {
-        return res.json()
+      axios.get('https://68385e662c55e01d184d08ef.mockapi.io/items').then(res => {
+        setItems(res.data)
       })
-      .then((json => {
-        setItems(json)
-      }))
-}, [setItems])
+}, [])
 
 
 const [openCart, setOpenCart] = useState(false);
@@ -67,7 +64,7 @@ const onChangeValue = (e) => {
               <div className="content-item">
                 {
                   items
-                  .filter((item) => item.name.includes(searchValue))
+                  .filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))
                   .map((item,index) => <Card key={index} imgUrl={item.imgUrl} name={item.name} price={item.price} onAddToCart={(obj) => onAddToCart(obj)} />)
                 }
               </div>
