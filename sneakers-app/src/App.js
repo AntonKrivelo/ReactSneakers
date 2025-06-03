@@ -23,6 +23,9 @@ const [cartItems, setCartItems] = useState([]);
 useEffect(() => {
       axios.get('https://68385e662c55e01d184d08ef.mockapi.io/items').then(res => {
         setItems(res.data)
+      });
+      axios.get('https://68385e662c55e01d184d08ef.mockapi.io/cart').then(res => {
+        setCartItems(res.data)
       })
 }, [])
 
@@ -40,6 +43,7 @@ const closeOverlayCart = (e) => {
 }
 
 const onAddToCart = (obj) => {
+  axios.post('https://68385e662c55e01d184d08ef.mockapi.io/cart', obj)
   setCartItems([...cartItems, obj])
 }
 
