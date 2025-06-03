@@ -8,6 +8,7 @@
     height: 100%;
 }
 .drawer-block {  
+    overflow-y: scroll;
     position: absolute;
     right: 0;
     height: 100%;
@@ -79,5 +80,23 @@
     opacity: 0.5;
     &:hover {
         opacity: 1;
+    }
+}
+
+.cart-empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    h2 {
+        font-weight: 700;
+        font-size: 20px;
+    }
+    p {
+        font-size: 16px;
+        color: #6e6e6e;
+        text-align: center;
+        padding-top: 10px;
     }
 }
