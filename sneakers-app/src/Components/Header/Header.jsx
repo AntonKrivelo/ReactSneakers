@@ -4,6 +4,7 @@ import iconCart from '../../Icons/CartIcon.svg';
 import iconFavourite from '../../Icons/FavouriteIcon.svg';
 import iconProfile from '../../Icons/profileIcon.svg';
 import './Header.scss';
+import { NavLink } from "react-router-dom";
 
 const Header = ({openOnClickCart}) => {
     return(
@@ -20,10 +21,12 @@ const Header = ({openOnClickCart}) => {
                 <img className="header-main-buttons-icon" src={iconCart} alt="cartIcon" />
                 <span>1205 Rub.</span>
               </li>
-              <li>
-                <img className="header-main-buttons-icon" src={iconFavourite} alt="favouriteIcon" />
-                <span>Закладки</span>
-              </li>
+              <NavLink to="/favourite">
+                <li>
+                  <img className="header-main-buttons-icon" src={iconFavourite} alt="favouriteIcon" />
+                  <span>Закладки</span>
+                </li>
+              </NavLink>
               <li>
                 <img className="header-main-buttons-icon" src={iconProfile} alt="profileIcon" />
                 <span>Профиль</span>
