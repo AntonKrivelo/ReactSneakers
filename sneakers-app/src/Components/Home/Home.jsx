@@ -2,7 +2,6 @@ import React from "react";
 import SearchBlock from '../SearchBlock/SearchBlock';
 import Card from '../Card/Card';
 import Drawer from '../Drawer/Drawer';
-import Header from '../Header/Header';
 import '../../index.scss';
 
 
@@ -22,8 +21,7 @@ const Home = ({items,
 
 
     return (
-        <div className="container">
-              <Header openOnClickCart={openOnClickCart} />
+        <div>
               {
               openCart ? <Drawer removeCartItem={removeCartItem} openOnClickCart={openOnClickCart} cartItems={cartItems} closeOverlayCart={closeOverlayCart} /> : null
               }

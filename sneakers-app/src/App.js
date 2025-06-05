@@ -4,6 +4,7 @@ import Favourite from './Components/Favourite/Favourite';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import './index.scss';
+import Header from './Components/Header/Header';
 
 
 function App() {
@@ -57,22 +58,25 @@ const onChangeValue = (e) => {
 
   return (
       <div className="wrapper">
-         <Routes>
-            <Route path="/" element={<Home 
-            items={items} 
-            searchValue={searchValue} 
-            setSearchValue={setSearchValue} 
-            openOnClickCart={openOnClickCart}
-            removeCartItem={removeCartItem}
-            openCart={openCart}
-            cartItems={cartItems}
-            onAddToFavourite={onAddToFavourite}
-            onAddToCart={onAddToCart}
-            onChangeValue={onChangeValue}
-            closeOverlayCart={closeOverlayCart}
-            />} exact/>
-            <Route path="/favourite" element={<Favourite />} exact/>
-         </Routes>
+        <div className="container">
+          <Header openOnClickCart={openOnClickCart} />
+            <Routes>
+                <Route path="/" element={<Home 
+                items={items} 
+                searchValue={searchValue} 
+                setSearchValue={setSearchValue} 
+                openOnClickCart={openOnClickCart}
+                removeCartItem={removeCartItem}
+                openCart={openCart}
+                cartItems={cartItems}
+                onAddToFavourite={onAddToFavourite}
+                onAddToCart={onAddToCart}
+                onChangeValue={onChangeValue}
+                closeOverlayCart={closeOverlayCart}
+                />} exact/>
+                <Route path="/favourite" element={<Favourite />} exact/>
+            </Routes>
+        </div>
       </div>
   );
 }
