@@ -6,10 +6,10 @@ import heartUnliked from "../../Icons/CardIcon/heart-unliked.svg";
 import heartLiked from "../../Icons/CardIcon/heart-liked.svg";
 
 
-const Card = ({item, name, price, imgUrl, onAddToCart, onAddToFavourite}) => {
+const Card = ({item, name, price, imgUrl, onAddToCart, onAddToFavourite, favourited = false}) => {
 
     const [isAdded, setIsAdded] = useState(false);
-    const [isFavourite, setIsFavourite] = useState(false);
+    const [isFavourite, setIsFavourite] = useState(favourited);
     
     const handleAdded = () => {
         onAddToCart({imgUrl, name, price})

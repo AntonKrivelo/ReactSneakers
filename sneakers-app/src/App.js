@@ -74,7 +74,7 @@ const onChangeValue = (e) => {
                 onChangeValue={onChangeValue}
                 closeOverlayCart={closeOverlayCart}
                 />} exact/>
-                <Route path="/favourite" element={<Favourite />} exact/>
+                <Route path="/favourite" element={<Favourite items={favouriteItems} onAddToFavourite={onAddToFavourite} />} exact/>
             </Routes>
         </div>
       </div>
