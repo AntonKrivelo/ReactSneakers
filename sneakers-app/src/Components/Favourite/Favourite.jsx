@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import Card from "../Card/Card";
 import "../../index.scss";
 
-const Favourite = ({items = []}) => {
+const Favourite = ({items = []}, onAddToFavourite) => {
     return (
         <div className="favourite-page">
             <div className="favourite-page-header">
@@ -19,13 +19,12 @@ const Favourite = ({items = []}) => {
                  {
                   items
                   .map((item,index) => 
-                  <Card key={index} imgUrl={item.imgUrl} name={item.name} price={item.price} favourited={true} />)
+                  <Card key={index} id={item.id} imgUrl={item.imgUrl} name={item.name} price={item.price} favourited={true} />)
                 } 
                 </div> : <div className="favourite-empty">
                         <h2>На странице закладок кроссовок нет</h2>
                         <p>Добавьте хотя бы одну пару кроссовок, чтобы добавить их в избранное</p>
                     </div>}
-            
         </div>
     )
 }

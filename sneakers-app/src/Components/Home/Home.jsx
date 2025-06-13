@@ -16,7 +16,8 @@ const Home = ({items,
                onAddToFavourite,
                onAddToCart,
                onChangeValue,
-               closeOverlayCart
+               closeOverlayCart,
+              
               }) => {
 
 
@@ -36,6 +37,8 @@ const Home = ({items,
                   <Card key={index} imgUrl={item.imgUrl} name={item.name} price={item.price} 
                   onAddToCart={(obj) => onAddToCart(obj)} 
                   onAddToFavourite={(obj) => onAddToFavourite(obj)} 
+                  added={cartItems.some(obj => Number(obj.id) === Number(item.id))}
+                
                   />)
                 }
               </div>
