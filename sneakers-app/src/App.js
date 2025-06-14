@@ -7,8 +7,10 @@ import './index.scss';
 import Header from './Components/Header/Header';
 
 
-function App() {
+export const AppContext = React.createContext({});
 
+
+function App() {
   
 const [items, setItems] = useState([]);
 const [searchValue, setSearchValue] = useState('');
@@ -83,28 +85,30 @@ const onChangeValue = (e) => {
 }
 
   return (
-      <div className="wrapper">
-        <div className="container">
-          <Header openOnClickCart={openOnClickCart} />
-            <Routes>
-                <Route path="/" element={<Home 
-                items={items} 
-                searchValue={searchValue} 
-                setSearchValue={setSearchValue} 
-                openOnClickCart={openOnClickCart}
-                removeCartItem={removeCartItem}
-                openCart={openCart}
-                cartItems={cartItems}
-                onAddToFavourite={onAddToFavourite}
-                onAddToCart={onAddToCart}
-                onChangeValue={onChangeValue}
-                closeOverlayCart={closeOverlayCart}
-                isLoading={isLoading}
-                />} exact/>
-                <Route path="/favourite" element={<Favourite items={favouriteItems} onAddToFavourite={onAddToFavourite} />} exact/>
-            </Routes>
+      <AppContext.Provider value={{items, cartItems, favouriteItems}}>
+        <div className="wrapper">
+          <div className="container">
+            <Header openOnClickCart={openOnClickCart} />
+              <Routes>
+                  <Route path="/" element={<Home 
+                  items={items} 
+                  searchValue={searchValue} 
+                  setSearchValue={setSearchValue} 
+                  openOnClickCart={openOnClickCart}
+                  removeCartItem={removeCartItem}
+                  openCart={openCart}
+                  cartItems={cartItems}
+                  onAddToFavourite={onAddToFavourite}
+                  onAddToCart={onAddToCart}
+                  onChangeValue={onChangeValue}
+                  closeOverlayCart={closeOverlayCart}
+                  isLoading={isLoading}
+                  />} exact/>
+                  <Route path="/favourite" element={<Favourite onAddToFavourite={onAddToFavourite} />} exact/>
+              </Routes>
         </div>
       </div>
+      </AppContext.Provider>
   );
 }
 

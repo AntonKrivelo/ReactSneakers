@@ -4,8 +4,12 @@ import backIcon from '../../Icons/Favourite/back.svg';
 import { NavLink } from "react-router-dom";
 import Card from "../Card/Card";
 import "../../index.scss";
+import { AppContext } from "../../App";
 
-const Favourite = ({items = []}, onAddToFavourite) => {
+const Favourite = (onAddToFavourite) => {
+
+    const {favouriteItems} = React.useContext(AppContext)
+
     return (
         <div className="favourite-page">
             <div className="favourite-page-header">
@@ -15,9 +19,9 @@ const Favourite = ({items = []}, onAddToFavourite) => {
                 <h1 className="favourite-page-header-title">Мои закладки</h1>
             </div>
             
-               {items.length > 0 ? <div className="content-item-favourite"> 
+               {favouriteItems.length > 0 ? <div className="content-item-favourite"> 
                  {
-                  items
+                  favouriteItems
                   .map((item,index) => 
                   <Card key={index} id={item.id} imgUrl={item.imgUrl} name={item.name} price={item.price} favourited={true} />)
                 } 
