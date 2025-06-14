@@ -17,9 +17,23 @@ const Home = ({items,
                onAddToCart,
                onChangeValue,
                closeOverlayCart,
-              
+               isLoading
               }) => {
 
+const renderItems = () => {
+  const filteredItems = items.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))
+  
+ return (isLoading ? [...Array(5)] : filteredItems).map((item,index)  => (
+          <Card 
+            key={index} 
+            loading={isLoading}
+            onAddToCart={(obj) => onAddToCart(obj)} 
+            onAddToFavourite={(obj) => onAddToFavourite(obj)} 
+            added={cartItems.some(obj => Number(obj.id) === Number(item.id))}
+            {...item}
+          />
+  ))
+}
 
     return (
         <div>
@@ -30,16 +44,8 @@ const Home = ({items,
               <h1 className="title">{searchValue ? `Поиск по запросу: "${searchValue}"` : "Все кроссовки:"}</h1>
                 <SearchBlock value={searchValue} clearValue={() => setSearchValue('')} searchValue={searchValue} onChangeValue={onChangeValue} />
               <div className="content-item">
-                {
-                  items
-                  .filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))
-                  .map((item,index) => 
-                  <Card key={index} imgUrl={item.imgUrl} name={item.name} price={item.price} 
-                  onAddToCart={(obj) => onAddToCart(obj)} 
-                  onAddToFavourite={(obj) => onAddToFavourite(obj)} 
-                  added={cartItems.some(obj => Number(obj.id) === Number(item.id))}
-                
-                  />)
+                { 
+                renderItems(isLoading)
                 }
               </div>
             </div>

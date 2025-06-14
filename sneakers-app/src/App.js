@@ -17,6 +17,7 @@ const [cartItems, setCartItems] = useState([]);
 const [favouriteItems, setFavouriteItems] = useState([]);
 
 const [openCart, setOpenCart] = useState(false);
+const [isLoading, setIsLoading] = useState(true);
 
 const openOnClickCart = () => {
   setOpenCart(!openCart);
@@ -36,11 +37,15 @@ const removeCartItem = (id) => {
 
 useEffect(() => {
      async function fetchData() {
+      
        const cartResponce = await axios.get('https://68385e662c55e01d184d08ef.mockapi.io/cart')
        const itemsResponce = await axios.get('https://68385e662c55e01d184d08ef.mockapi.io/items')
 
+       setIsLoading(false)
+
       setItems(itemsResponce.data)
       setCartItems(cartResponce.data)
+      
      }
      fetchData()
 }, []);
@@ -94,6 +99,7 @@ const onChangeValue = (e) => {
                 onAddToCart={onAddToCart}
                 onChangeValue={onChangeValue}
                 closeOverlayCart={closeOverlayCart}
+                isLoading={isLoading}
                 />} exact/>
                 <Route path="/favourite" element={<Favourite items={favouriteItems} onAddToFavourite={onAddToFavourite} />} exact/>
             </Routes>
