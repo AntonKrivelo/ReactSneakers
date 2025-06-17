@@ -69,8 +69,8 @@ const onAddToCart = (obj) => {
 }
 
 const onAddToFavourite = (obj) => {
-  if(favouriteItems.find((favouriteObj) => favouriteObj.id === obj.id)) {
-    setFavouriteItems((prev) => prev.filter(item => item.id !== obj.id))
+  if(favouriteItems.find((favouriteObj) => Number(favouriteObj.id) === Number(obj.id))) {
+    setFavouriteItems((prev) => prev.filter(item => Number(item.id) !== Number(obj.id)))
   } else {
     setFavouriteItems([...favouriteItems, obj])
   }
@@ -84,8 +84,12 @@ const onChangeValue = (e) => {
   setSearchValue(e.target.value)
 }
 
+const getAddedItems = (id) => {
+  return cartItems.some((obj) => Number(obj.id) === Number(id))
+}
+
   return (
-      <AppContext.Provider value={{items, cartItems, favouriteItems}}>
+      <AppContext.Provider value={{items, cartItems, favouriteItems, getAddedItems}}>
         <div className="wrapper">
           <div className="container">
             <Header openOnClickCart={openOnClickCart} />

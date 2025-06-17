@@ -5,23 +5,24 @@ import addedItem from "../../Icons/CardIcon/added-button.svg"
 import heartUnliked from "../../Icons/CardIcon/heart-unliked.svg";
 import heartLiked from "../../Icons/CardIcon/heart-liked.svg";
 import ContentLoader from "react-content-loader"
-
+import { AppContext } from "../../App";
 
 
 const Card = ({id, item, name, price, imgUrl, onAddToCart, loading = false, onAddToFavourite, favourited = false, added = false}) => {
 
-    const [isAdded, setIsAdded] = useState(added);
+    const {getAddedItems} = React.useContext(AppContext)
+
     const [isFavourite, setIsFavourite] = useState(favourited);
     
     const handleAdded = () => {
         onAddToCart({id, imgUrl, name, price})
-        setIsAdded(!isAdded)
     }
 
     const handleFavourite = () => {
         onAddToFavourite({id, imgUrl, name, price})
         setIsFavourite(!isFavourite)
     }
+
 
     return (
         <div className="card-item">
@@ -51,7 +52,7 @@ const Card = ({id, item, name, price, imgUrl, onAddToCart, loading = false, onAd
                         <p className="card-item-price">{price} Rub.</p>
                     </div>
                     <button onClick={() => handleAdded(item)} className="card-item-add-button">
-                        <img className="card-item-add-button-img" src={!isAdded ? `${add}` : `${addedItem}`} alt="icon-added-to-card"  />
+                        <img className="card-item-add-button-img" src={!getAddedItems(id) ? `${add}` : `${addedItem}`} alt="icon-added-to-card"  />
                     </button>
                 </div>
             </>

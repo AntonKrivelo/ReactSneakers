@@ -3,6 +3,7 @@ import SearchBlock from '../SearchBlock/SearchBlock';
 import Card from '../Card/Card';
 import Drawer from '../Drawer/Drawer';
 import '../../index.scss';
+import { AppContext } from "../../App";
 
 
 
@@ -20,6 +21,8 @@ const Home = ({items,
                isLoading
               }) => {
 
+const {getAddedItems} = React.useContext(AppContext)
+
 const renderItems = () => {
   const filteredItems = items.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))
   
@@ -29,7 +32,7 @@ const renderItems = () => {
             loading={isLoading}
             onAddToCart={(obj) => onAddToCart(obj)} 
             onAddToFavourite={(obj) => onAddToFavourite(obj)} 
-            added={cartItems.some(obj => Number(obj.id) === Number(item.id))}
+            added={getAddedItems(item && item.id)}
             {...item}
           />
   ))
