@@ -5,8 +5,18 @@ import iconFavourite from '../../Icons/FavouriteIcon.svg';
 import iconProfile from '../../Icons/profileIcon.svg';
 import './Header.scss';
 import { NavLink } from "react-router-dom";
+import { AppContext } from "../../App";
+
 
 const Header = ({openOnClickCart}) => {
+
+
+const {cartItems} = React.useContext(AppContext)
+
+
+const totalPriceCart = cartItems.reduce((sum, obj) => obj.price + sum, 0);
+
+
     return(
         <header className="header">
             <div className="header-main">
@@ -19,7 +29,7 @@ const Header = ({openOnClickCart}) => {
             <ul className="header-main-buttons">
               <li onClick={openOnClickCart}>
                 <img className="header-main-buttons-icon" src={iconCart} alt="cartIcon" />
-                <span>1205 Rub.</span>
+                <span>{totalPriceCart} Rub.</span>
               </li>
               <NavLink to="/favourite">
                 <li>
