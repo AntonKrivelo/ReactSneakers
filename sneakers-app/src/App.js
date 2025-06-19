@@ -89,7 +89,7 @@ const getAddedItems = (id) => {
 }
 
   return (
-      <AppContext.Provider value={{items, cartItems, favouriteItems, getAddedItems}}>
+      <AppContext.Provider value={{items, cartItems, setCartItems, favouriteItems, getAddedItems, setOpenCart}}>
         <div className="wrapper">
           <div className="container">
             <Header openOnClickCart={openOnClickCart} />

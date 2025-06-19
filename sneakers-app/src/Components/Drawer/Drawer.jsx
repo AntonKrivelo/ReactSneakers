@@ -4,8 +4,28 @@ import CartItem from "../CartItem/CartItem";
 import removeCart from "../../Icons/CartIcons/button-cart.svg";
 import vector from "../../Icons/vector.svg";
 import cartEmptyIcon from "../../Icons/CartIcons/cart-empty.svg";
+import orderComplete from "../../Icons/Info/order-complete.jpg";
+import Info from "../Info/Info";
+import { AppContext } from "../../App";
+import axios from "axios";
 
 const Drawer = ({openOnClickCart, closeOverlayCart, cartItems = [], removeCartItem}) => {
+     
+    const {setCartItems} = React.useContext(AppContext)
+    const [isOrderComplete, setIsOrderComplete] = React.useState(false);
+    const [isLoading, setIsLoading] = React.useState(false);
+    let [countOrder, setCountOrder] = React.useState(0);
+
+
+    const onClickOrder = () => {
+        setIsLoading(true)
+        setIsOrderComplete(true);
+        setCountOrder(++countOrder)
+        setCartItems([]);
+        setIsLoading(false);
+
+        }
+
     return (
         <div onClick={closeOverlayCart} className="drawer-overlay">
             <div className="drawer-block">
@@ -29,19 +49,14 @@ const Drawer = ({openOnClickCart, closeOverlayCart, cartItems = [], removeCartIt
                         <span>0 Rub.</span>
                     </div>
                     <div>
-                        <button className="drawer-block-buy-btn">Оформить заказ
+                        <button disabled={isLoading} onClick={onClickOrder} className="drawer-block-buy-btn">Оформить заказ
                             <img src={vector} alt="vector-icon" />
                         </button>
                     </div>
                     </div>
-                    </div> : <div className="cart-empty">
-                        <img src={cartEmptyIcon} alt="cart-empty-icon" />
-                        <h2>Корзина пуста</h2>
-                        <p>Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ</p>
-                    </div>
+                  
+                    </div> :   <Info title={isOrderComplete ? "Заказ оформлен!" : "Корзина пустая"} description={isOrderComplete ? `Ваш заказ #${countOrder} скоро будет передан курьерской доставке` : "Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ"} image={isOrderComplete ? `${orderComplete}` : `${cartEmptyIcon}`}/>
                     }
-                
-               
             </div>
         </div>
     )
