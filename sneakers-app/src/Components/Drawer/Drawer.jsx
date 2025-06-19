@@ -7,7 +7,6 @@ import cartEmptyIcon from "../../Icons/CartIcons/cart-empty.svg";
 import orderComplete from "../../Icons/Info/order-complete.jpg";
 import Info from "../Info/Info";
 import { AppContext } from "../../App";
-import axios from "axios";
 
 const Drawer = ({openOnClickCart, closeOverlayCart, cartItems = [], removeCartItem}) => {
      
@@ -16,6 +15,8 @@ const Drawer = ({openOnClickCart, closeOverlayCart, cartItems = [], removeCartIt
     const [isLoading, setIsLoading] = React.useState(false);
     let [countOrder, setCountOrder] = React.useState(0);
 
+    const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
+    
 
     const onClickOrder = () => {
         setIsLoading(true)
@@ -42,11 +43,11 @@ const Drawer = ({openOnClickCart, closeOverlayCart, cartItems = [], removeCartIt
                      <div className="drawer-block-buy">
                         <div className="drawer-block-buy-total">
                             <p>Итого:</p>
-                            <span>0 Rub.</span>
+                            <span>{totalPrice} Rub.</span>
                         </div>
                     <div className="drawer-block-buy-tax">
                         <p>Налог 5%:</p>
-                        <span>0 Rub.</span>
+                        <span>{(totalPrice / 100 * 5)} Rub.</span>
                     </div>
                     <div>
                         <button disabled={isLoading} onClick={onClickOrder} className="drawer-block-buy-btn">Оформить заказ
