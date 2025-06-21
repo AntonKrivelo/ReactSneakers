@@ -1,5 +1,4 @@
 .header {
-    min-width: 1080px;
     display: flex;
     justify-content: space-between;
     padding: 43px 45px;
@@ -22,7 +21,7 @@
         &-title {
             text-transform: uppercase;
             font-weight: 700;
-            font-size: 20px;
+            font-size: calc(10px + 10 * (100vw - 320px) / 880);
         }
         &-buttons {
             display: flex;
@@ -46,3 +45,44 @@
         }
     }
 }
+
+
+
+@media(max-width: 830px) {
+    .header {
+        flex-direction: column;
+        &-main {
+            &-buttons {
+                margin-top: 20px;
+            }
+        }
+    }
+    
+}
+
+@media(max-width: 571px) {
+    .header {
+        &-main {
+            &-buttons {
+                margin-top: 40px;
+                display: flex;
+                flex-direction: column;
+                span {
+                    font-weight: 900;
+                }
+                li {
+                    padding: 15px;
+                }
+            }
+        &-info {
+            p {   
+                font-size: 11px;
+            }
+        }
+        &-title {
+            
+        }
+        }
+    }
+}
+

@@ -115,7 +115,14 @@ body {
 }
 .title {
 	font-weight: 700;
-	font-size: 32px;
+	font-size: calc(20px + 8 * (100vw - 320px) / 880);
 	line-height: 100%;
 	margin-bottom: 20px;
+}
+
+
+@media(max-width: 750px) {
+	.content-item {
+		justify-content: center;
+	}
 }
